@@ -20,8 +20,14 @@ export default function Home() {
     id: second,
   })
 
+  const voteMutation = trpc.voteForPokemon.useMutation()
+
   const voteForRoundest = (selectedNumber: number) => {
-    // todo: fire mutation to persist changes
+    if (selectedNumber === first) {
+      voteMutation.mutate({ votedFor: first, votedAgainst: second })
+    } else {
+      voteMutation.mutate({ votedFor: second, votedAgainst: first })
+    }
 
     updateIds(getOptionsForVote())
   }
