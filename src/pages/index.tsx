@@ -4,6 +4,7 @@ import { useState } from 'react'
 import type React from 'react'
 import { inferQueryResponse } from './api/trpc/[trpc]'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const btn =
   'inline-flex items-center px-2.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
@@ -34,7 +35,7 @@ export default function Home() {
   }
 
   return (
-    <div className="w-screen h-screen flex flex-col justify-center items-center">
+    <div className="w-screen h-screen flex flex-col justify-center items-center relative">
       <div className="text-2xl text-center">Which pokemon is rounder?</div>
       <div className="p-2" />
       <div className="border rounded p-8 flex justify-between max-w-2xl items-center">
@@ -56,6 +57,9 @@ export default function Home() {
             </>
           )}
         <div className="p-2" />
+      </div>
+      <div className="absolute bottom-0 w-full text-xl text-center">
+        <Link href="https://github.com/SamuelFR7/roundest-mon">Github</Link>
       </div>
     </div>
   )
