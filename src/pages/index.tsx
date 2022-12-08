@@ -60,6 +60,8 @@ export default function Home() {
       </div>
       <div className="absolute bottom-0 w-full text-xl text-center">
         <Link href="https://github.com/SamuelFR7/roundest-mon">Github</Link>
+        {'  |  '}
+        <Link href="/results">Results</Link>
       </div>
     </div>
   )
