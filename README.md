@@ -5,6 +5,6 @@ Answering all of life's thoughest questions
 
 ## TODO
 - [X] Use next/image to handle image caching and better rendering
-- [ ] Persist data fetched from PokemonApi
-- [ ] Create the results page with counting/sorting
-- [ ] Create the results page with counting/sorting
+- [X] Persist data fetched from PokemonApi
+- [X] Create the results page with counting/sorting
+- [ ] Better loading state between votes
