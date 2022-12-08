@@ -34,31 +34,32 @@ export default function Home() {
     updateIds(getOptionsForVote())
   }
 
-  return (
-    <div className="w-screen h-screen flex flex-col justify-center items-center relative">
-      <div className="text-2xl text-center">Which pokemon is rounder?</div>
-      <div className="p-2" />
-      <div className="border rounded p-8 flex justify-between max-w-2xl items-center">
-        {!firstPokemon.isLoading &&
-          !secondPokemon.isLoading &&
-          firstPokemon.data &&
-          secondPokemon.data && (
-            <>
-              <PokemonListing
-                pokemon={firstPokemon.data}
-                vote={() => voteForRoundest(first)}
-              />
+  const dataLoaded =
+    !firstPokemon.isLoading &&
+    !secondPokemon.isLoading &&
+    firstPokemon.data &&
+    secondPokemon.data
 
-              <div className="p-8">Vs</div>
-              <PokemonListing
-                pokemon={secondPokemon.data}
-                vote={() => voteForRoundest(second)}
-              />
-            </>
-          )}
-        <div className="p-2" />
-      </div>
-      <div className="absolute bottom-0 w-full text-xl text-center">
+  return (
+    <div className="w-screen h-screen flex flex-col justify-between items-center relative">
+      <div className="text-2xl text-center pt-8">Which pokemon is rounder?</div>
+      {dataLoaded && (
+        <div className="border rounded p-8 flex justify-between max-w-2xl items-center">
+          <PokemonListing
+            pokemon={firstPokemon.data}
+            vote={() => voteForRoundest(first)}
+          />
+
+          <div className="p-8">Vs</div>
+          <PokemonListing
+            pokemon={secondPokemon.data}
+            vote={() => voteForRoundest(second)}
+          />
+          <div className="p-2" />
+        </div>
+      )}
+      {!dataLoaded && <img src="/loader.svg" alt="loading" className="w-48" />}
+      <div className="w-full text-xl text-center">
         <Link href="https://github.com/SamuelFR7/roundest-mon">Github</Link>
         {'  |  '}
         <Link href="/results">Results</Link>
