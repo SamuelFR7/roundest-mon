@@ -75,10 +75,9 @@ const PokemonListing: React.FC<{
     <div className="flex flex-col items-center">
       <Image
         src={props.pokemon.spriteUrl}
-        alt="First pokemon"
+        alt="Pokemon"
         width={256}
         height={256}
-        layout="fixed"
       />
       <div className="text-xl text-center capitalize mt-[-2rem]">
         {props.pokemon.name}
